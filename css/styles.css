@@ -96,7 +96,8 @@
         }
 
         .nav-item:hover {
-            background-color: #fff8ec;
+            background-color: #f76400;
+            color: #fff8ec;
         }
         
         /* Glass Effect Styles */
@@ -228,7 +229,6 @@
             width: 85%;
             min-height: 12rem;
             height: 21.5rem;
-            border: #f76400 2px solid;
             padding: 1rem;
         }
 
@@ -247,10 +247,6 @@
         .artworksDropdown {
             color: #f76400;
         }
-
-
-
-
 
     /* ==========================================================================
         INDEX SHOP SECTION
@@ -305,8 +301,8 @@
     }
 
     .shopFilter {
-        margin-top: 1.5rem;
-        position: relative;
+        /* margin-top: 1.5rem;
+        position: relative; */
     }
 
     .artworksDropdown {
@@ -387,309 +383,6 @@
         min-height: 0;
     }
 
-    .shopFilter {
-        margin-top: 1.5rem;
-        position: relative;
-    }
-
-    .artworksDropdown {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .artworksDropdown i {
-        margin-left: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .dropdownFilter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .sampleArts {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-        overflow-x: auto;
-        overflow-y: visible;
-        width: 100%;
-        max-width: 100vw;
-        /* Remove fixed minmax(850px, 5fr) for better responsiveness */
-    }
-
-    @media (max-width: 1024px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .sampleArts {
-            grid-template-columns: 1fr;
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    /* Make artwork cards scrollable if content overflows */
-    .artwork-card {
-        max-height: 480px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .artwork-card .p-4 {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
-
-    .shopFilter {
-        margin-top: 1.5rem;
-        position: relative;
-    }
-
-    .artworksDropdown {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .artworksDropdown i {
-        margin-left: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .dropdownFilter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .sampleArts {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-        overflow-x: auto;
-        overflow-y: visible;
-        width: 100%;
-        max-width: 100vw;
-        /* Remove fixed minmax(850px, 5fr) for better responsiveness */
-    }
-
-    @media (max-width: 1024px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .sampleArts {
-            grid-template-columns: 1fr;
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    /* Make artwork cards scrollable if content overflows */
-    .artwork-card {
-        max-height: 480px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .artwork-card .p-4 {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
-
-    .shopFilter {
-        margin-top: 1.5rem;
-        position: relative;
-    }
-
-    .artworksDropdown {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .artworksDropdown i {
-        margin-left: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .dropdownFilter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .sampleArts {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-        overflow-x: auto;
-        overflow-y: visible;
-        width: 100%;
-        max-width: 100vw;
-        /* Remove fixed minmax(850px, 5fr) for better responsiveness */
-    }
-
-    @media (max-width: 1024px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .sampleArts {
-            grid-template-columns: 1fr;
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    /* Make artwork cards scrollable if content overflows */
-    .artwork-card {
-        max-height: 480px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .artwork-card .p-4 {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
-
-    .shopFilter {
-        margin-top: 1.5rem;
-        position: relative;
-    }
-
-    .artworksDropdown {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .artworksDropdown i {
-        margin-left: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .dropdownFilter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .sampleArts {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-        overflow-x: auto;
-        overflow-y: visible;
-        width: 100%;
-        max-width: 100vw;
-        /* Remove fixed minmax(850px, 5fr) for better responsiveness */
-    }
-
-    @media (max-width: 1024px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sampleArts {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .sampleArts {
-            grid-template-columns: 1fr;
-            overflow-x: auto;
-            overflow-y: visible;
-            padding-bottom: 1rem;
-        }
-    }
-
-    /* Make artwork cards scrollable if content overflows */
-    .artwork-card {
-        max-height: 480px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .artwork-card .p-4 {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
     /* ==========================================================================
         7. ARTISTS SECTION
         ========================================================================== */
@@ -1448,7 +1141,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem; /* Added margin to separate cards better */
+    margin-bottom: 1rem;
 }
 
 .event-preview-card:hover {
@@ -1457,7 +1150,7 @@
 }
 
 .event-preview-card img {
-    height: 180px; /* Slightly reduced from 200px */
+    height: 180px;
     object-fit: cover;
     width: 100%;
 }
@@ -1467,9 +1160,9 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
     line-height: 1.2;
-    color: #f76400;
-    display: -webkit-box; /* For text truncation */
-    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    /* color: #f76400; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

@@ -41,7 +41,7 @@ async function loadEvents() {
             } else {
                 importantEventsContainer.innerHTML = upcomingFeaturedEvents.map(event => `
                     <div class="glass-header2 rounded-lg p-4 m-4 event-card relative" 
-                        data-id="${event.id}" data-aos="fade-left" style="cursor: pointer; display: flex; flex-direction: column; min-height: 280px;">
+                        data-id="${event.id}" data-aos="fade-left" style="cursor: pointer; display: flex; flex-direction: column; min-height: 280px; border: 2px solid #f76400;">
                         <div class="event-content flex-grow">
                             <h3 class="rubik-dirt-regular font-custom text-2xl font-bold mb-2">${event.title}</h3>
                             <p class="text-sm font-bold">Start: ${event.startDate}</p>
@@ -75,10 +75,10 @@ async function loadEvents() {
                 eventsContainer.innerHTML = `
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 overscroll-y-auto" style="max-height: 100%;">
                         ${limitedEvents.map(event => `
-                            <div class="artist-card border-2 border-black rounded-lg p-4 mb-4 event-card relative"
+                            <div class="artist-card rounded-lg p-4 mb-4 event-card relative bg-white shadow-lg"
                             style="cursor: pointer; display: flex; flex-direction: column; min-height: 280px;" data-id="${event.id}">
                                 <div class="event-content flex-grow" style="position: relative; z-index: 12;">
-                                    <h3 class="rubik-dirt-regular text-2xl font-bold mb-2 text-black">${event.title}</h3>
+                                    <h3 class="text-2xl font-bold mb-2 text-black">${event.title}</h3>
                                     <p class="text-sm text-black">Start: ${event.startDate}</p>
                                     <p class="text-sm text-black">End: ${event.endDate}</p>
                                     <p class="text-sm text-black">Location: ${event.location}</p>
@@ -89,7 +89,7 @@ async function loadEvents() {
                                     ` : ''}
                                 </div>
                                 <div class="mt-auto text-right">
-                                    <button class="view-event-btn mt-4 p-2 text-black rounded" style="background: #F4A900;">View Event</button>
+                                    <button class="view-event-btn mt-4 p-2 text-black rounded" style="background: #f76400; color: white;">View Event</button>
                                 </div>
                             </div>
                         `).join('')}
@@ -137,30 +137,71 @@ function loadFloatingEvents(events, limit = 3) {
     
     // Get the most recent events limited by screen size
     const recentEvents = events.slice(0, itemsToShow);
+// Render floating event cards with individual hover-based dropdowns
+floatingEventContainer.innerHTML = recentEvents.map(event => {
+  const title = event.title || "Untitled Event";
+  const location = event.location || "No location specified";
+  const date = event.startDate || "No date available";
+  const description = event.description || "No description available";
+  const imageUrl = event.imageUrl || 'images/events/default-event.jpg';
 
-    floatingEventContainer.innerHTML = recentEvents.map(event => `
-        <div class="event-preview-card overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer" data-id="${event.id}">
-            <img src="${event.imageUrl || 'images/events/default-event.jpg'}" 
-                 alt="${event.title}" 
-                 class="w-full h-48 object-cover">
-            <div class="p-4 bg-white">
-                <h3 class="text-lg font-semibold text-gray-800 rubik-dirt-regular mb-2">${event.title}</h3>
-                <div class="flex items-center text-sm text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <p>${event.location}</p>
-                </div>
-                <div class="flex items-center text-sm text-gray-600 mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p>${formatDate(event.startDate)}</p>
-                </div>
-            </div>
+  return `
+    <div class="event-preview-card rounded-lg shadow transition-all duration-300 cursor-pointer border-2 border-orange-500 group relative">
+
+      <!-- Event Image -->
+      <img 
+        src="${imageUrl}" 
+        alt="${title}" 
+        class="w-full h-40 md:h-48 object-cover border-b-2 border-orange-500">
+
+      <!-- Event Title -->
+      <div class="p-4 bg-white border-b-2 border-orange-500">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">${title}</h3>
+      </div>
+
+      <div class="absolute left-0 top-full w-full bg-white border-t-2 border-orange-500 px-6 py-6 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto max-h-0 group-hover:max-h-[400px] overflow-hidden transition-all duration-300 ease-in-out text-sm shadow-xl rounded-b-lg z-10">
+        <div class="grid gap-4 text-gray-700">
+          <div class="flex items-start">
+            <span class="w-28 font-semibold text-orange-600">Date:</span>
+            <span class="flex-1">${date}</span>
+          </div>
+          <div class="flex items-start">
+            <span class="w-28 font-semibold text-orange-600">Location:</span>
+            <span class="flex items-center flex-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              ${location}
+            </span>
+          </div>
+          <div class="flex items-start">
+            <span class="w-28 font-semibold text-orange-600">Description:</span>
+            <span class="flex-1">${description}</span>
+          </div>
         </div>
-    `).join('');
+      </div>
+    </div>
+  `;
+}).join('');
+
+// Enable toggling of dropdowns
+floatingEventContainer.querySelectorAll('.toggle-details-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const content = btn.nextElementSibling;
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      btn.textContent = 'Hide Details';
+    } else {
+      content.classList.add('hidden');
+      btn.textContent = 'Show Details';
+    }
+  });
+});
+
 
     // Add click handlers for the preview cards
     const previewCards = floatingEventContainer.querySelectorAll('.event-preview-card');
